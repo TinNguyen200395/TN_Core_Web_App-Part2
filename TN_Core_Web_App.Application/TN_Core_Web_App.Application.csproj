@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TN_Core_Web_App.Data\TN_Core_Web_App.Data.csproj" />
+    <ProjectReference Include="..\TN_Core_Web_App.Utilities\TN_Core_Web_App.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

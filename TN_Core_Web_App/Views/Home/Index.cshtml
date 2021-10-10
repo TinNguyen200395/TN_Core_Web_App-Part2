@@ -1,0 +1,358 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["MetaKeyword"] = Model.MetaKeyword;
+    ViewData["MetaDescription"] = Model.MetaDescription;
+
+}
+@section Scripts{
+
+    <script src="~/client-app/controllers/home/index.js"></script>
+    <script>
+        var homeobj = new HomeController();
+        homeobj.initialize();
+    </script>
+}
+<!-- Slideshow  -->
+<div class="main-slider" id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 banner-left hidden-xs"><img src="/client-side/images/banner-left.jpg" alt="banner"></div>
+            <div class="col-sm-9 col-md-9 col-lg-9 col-xs-12 jtv-slideshow">
+                <div id="jtv-slideshow">
+                    <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
+                        <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
+                            <ul>
+                                @foreach (var slide in Model.HomeSlides)
+                                {
+                                    <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
+                                        <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                                        <div class="caption-inner">
+                                            <div class='tp-caption LargeTitle sft  tp-resizeme' data-x='250' data-y='110' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>TN-Watch Shop! </div>
+                                            <div class='tp-caption ExtraLargeTitle sft  tp-resizeme' data-x='200' data-y='160' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#fff; text-shadow:none;'>Good Reputation</div>
+                                            <div class='tp-caption' data-x='310' data-y='230' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#f8f8f8;'>Perfect website buy watch in Viet Nam</div>
+                                            <div class='tp-caption sfb  tp-resizeme ' data-x='370' data-y='280' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">Get Started</a> </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                            <div class="tp-bannertimer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- service section -->
+@await Html.PartialAsync("_ServicePartial.cshtml")
+
+<div class="inner-box">
+    <div class="container">
+        <div class="row">
+            <!-- Banner -->
+            <div class="col-md-3 top-banner hidden-sm">
+                <div class="jtv-banner3">
+                    <div class="jtv-banner3-inner">
+                        <a href="#"><img src="client-side/images/products/QC.jpg" alt="HTML template"></a>
+                        <div class="hover_content">
+                            <div class="hover_data">
+                                <div class="title"> Big Sale </div>
+                                <div class="desc-text">Up to 55% off</div>
+                                <p><a href="#" class="shop-now">Get it now!</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Best Sale -->
+            <div class="col-sm-12 col-md-9 jtv-best-sale special-pro">
+                <div class="jtv-best-sale-list">
+                    <div class="wpb_wrapper">
+                        <div class="best-title text-left">
+                            <h2>Special Offers</h2>
+                        </div>
+                    </div>
+                    <div class="slider-items-products">
+                        <div id="jtv-best-sale-slider" class="product-flexslider">
+                            <div class="slider-items">
+                                @foreach (var item in Model.TopSellProducts)
+                                {
+                                    <div class="product-item">
+                                        <div class="item-inner">
+                                            <div class="product-thumbnail">
+                                                <div class="icon-new-label new-left">New</div>
+                                                <div class="pr-img-area">
+                                                    <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
+                                                        <figure>
+                                                            <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
+                                                            <img class="hover-img" src="@item.Image?w=190" alt="@item.Name">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <div class="pr-info-area">
+                                                    <div class="pr-button">
+                                                        <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
+                                                        <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
+                                                        <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"> <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                                                        </div>
+                                                        <div class="pro-action">
+                                                            <button type="button" class="add-to-cart" data-id="@item.Id"><span> Purchase</span> </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- All products-->
+
+<div class="container">
+    <div class="home-tab">
+        <div class="tab-title text-left">
+            <h2>Best selling</h2>
+            <ul class="nav home-nav-tabs home-product-tabs">
+                @for (var i = 0; i < Model.HomeCategories.Count; i++)
+                {
+                    var item = Model.HomeCategories[i];
+                    if (i == 0)
+                    {
+                        <li class="active"><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li>
+                    }
+                }
+            </ul>
+        </div>
+        <div id="productTabContent" class="tab-content">
+            @for (var i = 0; i < Model.HomeCategories.Count; i++)
+            {
+                var category = Model.HomeCategories[i];
+                string css = string.Empty;
+                if (i == 0)
+                {
+                    css = "tab-pane active in";
+                }
+                else
+                {
+                    css = "tab-pane wow fadeInLeft";
+                }
+                <div class="@css" id="@category.SeoAlias">
+                    <div class="featured-pro">
+                        <div class="slider-items-products">
+                            <div id="computer-slider" class="product-flexslider hidden-buttons">
+                                <div class="slider-items slider-width-col4">
+                                    @foreach (var item in category.Products)
+                                    {
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    <div class="icon-new-label new-left">mới</div>
+                                                    <div class="pr-img-area">
+                                                        <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
+                                                            <figure>
+                                                                <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
+                                                                <img class="hover-img" src="@item.Image?w=190" alt="@item.Name">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
+                                                            <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
+                                                            <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title"> <a title="Product title here" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
+                                                        <div class="item-content">
+                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                            <div class="item-price">
+                                                                <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                                                            </div>
+                                                            <div class="pro-action">
+                                                                <button type="button" data-id="@item.Id" class="add-to-cart"><span> Purchase</span> </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<!-- Blog -->
+<!-- <section class="blog-post-wrapper">
+    <div class="container">
+        <div class="best-title text-left">
+            <h2>Our Latest News</h2>
+        </div>
+        <div class="slider-items-products">
+            <div id="latest-news-slider" class="product-flexslider hidden-buttons">
+                <div class="slider-items slider-width-col6">
+                    <div class="item">
+                        <div class="blog-box">
+                            <a href="blog_single_post.html"> <img class="primary-img" src="client-side/images/blog-img1.jpg" alt="HTML template"></a>
+                            <div class="blog-btm-desc">
+                                <div class="blog-top-desc">
+                                    <div class="blog-date"> 28 Jan 2017 </div>
+                                    <h4><a href="blog_single_post.html">Lorem ipsum dolor sit</a></h4>
+                                    <div class="jtv-entry-meta"> <i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>15 Comments</strong></a></div>
+                                </div>
+                                <p>Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, Mauris fermentum dictum.</p>
+                                <a class="read-more" href="blog_single_post.html"> Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog-box">
+                            <a href="blog_single_post.html"> <img class="primary-img" src="client-side/images/blog-img1.jpg" alt="HTML template"></a>
+                            <div class="blog-btm-desc">
+                                <div class="blog-top-desc">
+                                    <div class="blog-date"> 18 Feb 2017 </div>
+                                    <h4><a href="blog_single_post.html">Sed do eiusmod sit amet</a></h4>
+                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>50 Comments</strong></a></div>
+                                </div>
+                                <p> Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                <a class="read-more" href="blog_single_post.html"> Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog-box">
+                            <a href="blog_single_post.html"> <img class="primary-img" src="client-side/images/blog-img1.jpg" alt="HTML template"></a>
+                            <div class="blog-btm-desc">
+                                <div class="blog-top-desc">
+                                    <div class="blog-date"> 5 Mar 2017 </div>
+                                    <h4><a href="blog_single_post.html">Integer scelerisque diam</a></h4>
+                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>25 Comments</strong></a></div>
+                                </div>
+                                <p> Doloremque nam. Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis.  Aenean auctor wisi et urna.</p>
+                                <a class="read-more" href="blog_single_post.html"> Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog-box">
+                            <a href="blog_single_post.html"> <img class="primary-img" src="client-side/images/blog-img1.jpg" alt="HTML template"></a>
+                            <div class="blog-btm-desc">
+                                <div class="blog-top-desc">
+                                    <div class="blog-date"> 5 May 2017 </div>
+                                    <h4><a href="blog_single_post.html">Integer scelerisque diam</a></h4>
+                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>05 Comments</strong></a></div>
+                                </div>
+                                <p>Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis.  Aenean auctor wisi et urna. Aliquam erat volutpat. </p>
+                                <a class="read-more" href="blog_single_post.html"> Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="blog-box">
+                            <a href="blog_single_post.html"> <img class="primary-img" src="client-side/images/blog-img1.jpg" alt="HTML template"></a>
+                            <div class="blog-btm-desc">
+                                <div class="blog-top-desc">
+                                    <div class="blog-date"> 06 Aug 2017 </div>
+                                    <h4><a href="blog_single_post.html">Duis ac turpis aliquam leo</a></h4>
+                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>25 Comments</strong></a></div>
+                                </div>
+                                <p>Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis.  Aenean auctor wisi et urna. Aliquam erat volutpat.</p>
+                                <a class="read-more" href="blog_single_post.html"> Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- our clients Slider -->
+
+@await Component.InvokeAsync("Brand")
+
+<!-- BANNER-AREA-START -->
+<section class="banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                        <div class="banner-block">
+                            <a href="#"> <img src="client-side/images/banner-sunglasses.jpg" alt="banner sunglasses"> </a>
+                            <div class="text-des-container">
+                                <div class="text-des">
+                                    <h2>P1C/04 - "CAIPI”</h2>
+                                    <p>DELIVERY TIME: 2-5 BUSINESS DAYS!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                        <div class="banner-block">
+                            <a href="#"> <img src="client-side/images/banner-kids.jpg" alt="banner kids"> </a>
+                            <div class="text-des-container">
+                                <div class="text-des">
+                                    <h2>TEE SHIRT, SHORT SLEEVE WASHED BANANA</h2>
+                                    <p>No extra charges on all international orders.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-block">
+                            <a href="#"> <img src="client-side/images/banner-women.jpg" alt="banner women"> </a>
+                            <div class="text-des-container">
+                                <div class="text-des">
+                                    <h2>INS3B/01 “INSANE EVO II”</h2>
+                                    <p>Payments via Secure Sockets Layer (SSL) 128-bit encryption!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-lg-4 col-md-4">
+                <div class="banner-block">
+                    <a href="#"> <img src="client-side/images/banner-arrival.jpg" alt="banner arrival"> </a>
+                    <div class="text-des-container">
+                        <div class="text-des">
+                            <h2>Q2/03 "CHOO-CHOO"</h2>
+                            <p>FREE SHIPPING ON ALL ORDERS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- BANNER-AREA-END -->
