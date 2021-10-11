@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TN_Core_Web_App.Application.ViewModels.Blog;
 using TN_Core_Web_App.Application.ViewModels.Common;
 using TN_Core_Web_App.Application.ViewModels.Product;
 using TN_Core_Web_App.Application.ViewModels.System;
@@ -46,7 +47,8 @@ namespace TN_Core_Web_App.Application.AutoMapper
 
             CreateMap<FeedbackViewModel, Feedback>()
                 .ConstructUsing(c => new Feedback(c.Id, c.Name, c.Email, c.Message, c.Status));
-
+            CreateMap<PageViewModel, Page>()
+            .ConstructUsing(c => new Page(c.Id, c.Name, c.Alias, c.Content, c.Status));
         }
     }
 }

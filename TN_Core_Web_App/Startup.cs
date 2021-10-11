@@ -150,7 +150,7 @@ namespace TN_Core_Web_App
             services.AddTransient<ISystemConfigRepository, SystemConfigRepository>();
 
             services.AddTransient<IFooterRepository, FooterRepository>();
-
+            services.AddTransient<IPageRepository, PageRepository>();
 
             //Serrvices
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
@@ -163,7 +163,7 @@ namespace TN_Core_Web_App
             services.AddTransient<ICommonService, CommonService>();
             services.AddTransient<IFeedbackService, FeedbackService>();
             services.AddTransient<IContactService, ContactService>();
-
+            services.AddTransient<IPageService, PageService>();
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
 

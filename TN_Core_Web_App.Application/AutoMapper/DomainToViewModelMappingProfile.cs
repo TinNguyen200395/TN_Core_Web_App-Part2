@@ -36,6 +36,7 @@ namespace TN_Core_Web_App.Application.AutoMapper
 
             CreateMap<Feedback, FeedbackViewModel>().MaxDepth(2);
             CreateMap<Contact, ContactViewModel>().MaxDepth(2);
+            CreateMap<Page, PageViewModel>().MaxDepth(2);
         }
     }
 }
