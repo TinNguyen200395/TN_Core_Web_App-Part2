@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TN_Core_Web_App.Data", "TN_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TN_Core_Web_App.Data.EF", "TN_Core_Web_App.Data.EF\TN_Core_Web_App.Data.EF.csproj", "{AE3F61C8-4D38-4805-B663-0012EC9A25A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN_Core_Web_App.Application.Dapper", "TN_Core_Web_App.Application.Dapper\TN_Core_Web_App.Application.Dapper.csproj", "{051C96F6-7BC2-47FD-BE3A-5946DC06F8AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{AE3F61C8-4D38-4805-B663-0012EC9A25A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE3F61C8-4D38-4805-B663-0012EC9A25A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE3F61C8-4D38-4805-B663-0012EC9A25A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{051C96F6-7BC2-47FD-BE3A-5946DC06F8AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051C96F6-7BC2-47FD-BE3A-5946DC06F8AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051C96F6-7BC2-47FD-BE3A-5946DC06F8AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051C96F6-7BC2-47FD-BE3A-5946DC06F8AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{1A808492-FB4B-4865-9126-C05E673AB041} = {224E4689-5B7D-4A23-BE96-B63932687807}
 		{025AAFC6-2E1F-4EED-A49F-8A8D78805D69} = {5CAFC82D-2ED1-4F54-AE73-F735750789E1}
 		{AE3F61C8-4D38-4805-B663-0012EC9A25A7} = {5CAFC82D-2ED1-4F54-AE73-F735750789E1}
+		{051C96F6-7BC2-47FD-BE3A-5946DC06F8AC} = {5218844E-E475-44EC-9818-963442ACA447}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {467AC731-8567-4C39-BA71-4946D228F2C9}

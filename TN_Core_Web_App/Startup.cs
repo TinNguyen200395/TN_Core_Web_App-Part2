@@ -28,6 +28,8 @@ using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using TN_Core_Web_App.Middleware;
 using Microsoft.AspNetCore.Mvc;
 using TN_Core_Web_App.Extensions;
+using TN_Core_Web_App.Application.Dapper.Interfaces;
+using TN_Core_Web_App.Application.Dapper.Implementation;
 
 namespace TN_Core_Web_App
 {
@@ -165,7 +167,7 @@ namespace TN_Core_Web_App
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IPageService, PageService>();
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
-
+            services.AddTransient<IReportService, ReportService>();
 
         }
 

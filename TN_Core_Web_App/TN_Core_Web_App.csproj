@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TN_Core_Web_App.Application.Dapper\TN_Core_Web_App.Application.Dapper.csproj" />
     <ProjectReference Include="..\TN_Core_Web_App.Application\TN_Core_Web_App.Application.csproj" />
     <ProjectReference Include="..\TN_Core_Web_App.Data\TN_Core_Web_App.Data.csproj" />
     <ProjectReference Include="..\TN_Core_Web_App.Infrastructure\TN_Core_Web_App.Infrastructure.csproj" />
