@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>(); 
+    }
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Basic page needs -->
@@ -45,7 +49,7 @@
                         @await Component.InvokeAsync("CategoryMenu")
                     </div>
                     <div class="col-md-9 col-sm-9 jtv-megamenu">
-                       @await Component.InvokeAsync("MainMenu")
+                        @await Component.InvokeAsync("MainMenu")
                     </div>
                 </div>
             </div>
@@ -84,13 +88,15 @@
     <script src="~/lib/notifyjs/dist/notify.js"></script>
     <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
     <script src="~/lib/mustache/mustache.js"></script>
+    <script src="~/client-app/shared/localize/resources.@(requestCulture.RequestCulture.Culture.Name).js"></script>
     <script src="~/client-app/shared/tn.js"></script>
     <script src="~/client-app/controllers/base/index.js"></script>
+
     <script>
         var baseObj = new BaseController();
         baseObj.initialize();
     </script>
-    @RenderSection("Scripts",required:false)
-    
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

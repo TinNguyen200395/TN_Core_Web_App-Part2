@@ -1,10 +1,9 @@
 ﻿@model HomeViewModel
-@{
-    ViewData["Title"] = Model.Title;
-    ViewData["MetaKeyword"] = Model.MetaKeyword;
-    ViewData["MetaDescription"] = Model.MetaDescription;
+@inject IViewLocalizer localizer
 
-}
+@{ ViewData["Title"] = Model.Title;
+                ViewData["MetaKeyword"] = Model.MetaKeyword;
+                ViewData["MetaDescription"] = Model.MetaDescription; }
 @section Scripts{
 
     <script src="~/client-app/controllers/home/index.js"></script>
@@ -25,16 +24,15 @@
                             <ul>
                                 @foreach (var slide in Model.HomeSlides)
                                 {
-                                    <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
-                                        <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
-                                        <div class="caption-inner">
-                                            <div class='tp-caption LargeTitle sft  tp-resizeme' data-x='250' data-y='110' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>TN-Watch Shop! </div>
-                                            <div class='tp-caption ExtraLargeTitle sft  tp-resizeme' data-x='200' data-y='160' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#fff; text-shadow:none;'>Good Reputation</div>
-                                            <div class='tp-caption' data-x='310' data-y='230' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#f8f8f8;'>Perfect website buy watch in Viet Nam</div>
-                                            <div class='tp-caption sfb  tp-resizeme ' data-x='370' data-y='280' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">Get Started</a> </div>
-                                        </div>
-                                    </li>
-                                }
+                    <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
+                        <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                        <div class="caption-inner">
+                            <div class='tp-caption LargeTitle sft  tp-resizeme' data-x='250' data-y='110' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>TN-Watch Shop! </div>
+                            <div class='tp-caption ExtraLargeTitle sft  tp-resizeme' data-x='200' data-y='160' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#fff; text-shadow:none;'>@localizer["GoodReputation"]</div>
+                            <div class='tp-caption' data-x='310' data-y='230' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#f8f8f8;'>@localizer["Perfect"]</div>
+                            <div class='tp-caption sfb  tp-resizeme ' data-x='370' data-y='280' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">@localizer["GetStarted"]</a> </div>
+                        </div>
+                    </li>}
                             </ul>
                             <div class="tp-bannertimer"></div>
                         </div>
@@ -70,7 +68,7 @@
                 <div class="jtv-best-sale-list">
                     <div class="wpb_wrapper">
                         <div class="best-title text-left">
-                            <h2>Special Offers</h2>
+                            <h2>@localizer["SpecialOffers"]</h2>
                         </div>
                     </div>
                     <div class="slider-items-products">
@@ -78,43 +76,42 @@
                             <div class="slider-items">
                                 @foreach (var item in Model.TopSellProducts)
                                 {
-                                    <div class="product-item">
-                                        <div class="item-inner">
-                                            <div class="product-thumbnail">
-                                                <div class="icon-new-label new-left">New</div>
-                                                <div class="pr-img-area">
-                                                    <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
-                                                        <figure>
-                                                            <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
-                                                            <img class="hover-img" src="@item.Image?w=190" alt="@item.Name">
-                                                        </figure>
-                                                    </a>
-                                                </div>
-                                                <div class="pr-info-area">
-                                                    <div class="pr-button">
-                                                        <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                        <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                        <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-info">
-                                                <div class="info-inner">
-                                                    <div class="item-title"> <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
-                                                    <div class="item-content">
-                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                        <div class="item-price">
-                                                            <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
-                                                        </div>
-                                                        <div class="pro-action">
-                                                            <button type="button" class="add-to-cart" data-id="@item.Id"><span> Purchase</span> </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                    <div class="product-item">
+                        <div class="item-inner">
+                            <div class="product-thumbnail">
+                                <div class="icon-new-label new-left">New</div>
+                                <div class="pr-img-area">
+                                    <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
+                                        <figure>
+                                            <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
+                                            <img class="hover-img" src="@item.Image?w=190" alt="@item.Name">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="pr-info-area">
+                                    <div class="pr-button">
+                                        <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
+                                        <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
+                                        <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-info">
+                                <div class="info-inner">
+                                    <div class="item-title"> <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
+                                    <div class="item-content">
+                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                        <div class="item-price">
+                                            <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                                        </div>
+                                        <div class="pro-action">
+                                            <button type="button" class="add-to-cart" data-id="@item.Id"><span> @localizer["Purchase"]</span> </button>
                                         </div>
                                     </div>
-                                }
+                                </div>
+                            </div>
+                        </div>
+                    </div>}
                             </div>
                         </div>
                     </div>
@@ -130,19 +127,17 @@
 <div class="container">
     <div class="home-tab">
         <div class="tab-title text-left">
-            <h2>Best selling</h2>
+            <h2>@localizer["Bestselling"]</h2>
             <ul class="nav home-nav-tabs home-product-tabs">
                 @for (var i = 0; i < Model.HomeCategories.Count; i++)
                 {
                     var item = Model.HomeCategories[i];
                     if (i == 0)
                     {
-                        <li class="active"><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li>
-                    }
+    <li class="active"><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li> }
                     else
                     {
-                        <li><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li>
-                    }
+    <li><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li>}
                 }
             </ul>
         </div>
@@ -159,56 +154,54 @@
                 {
                     css = "tab-pane wow fadeInLeft";
                 }
-                <div class="@css" id="@category.SeoAlias">
-                    <div class="featured-pro">
-                        <div class="slider-items-products">
-                            <div id="computer-slider" class="product-flexslider hidden-buttons">
-                                <div class="slider-items slider-width-col4">
-                                    @foreach (var item in category.Products)
-                                    {
-                                        <div class="product-item">
-                                            <div class="item-inner">
-                                                <div class="product-thumbnail">
-                                                    <div class="icon-new-label new-left">mới</div>
-                                                    <div class="pr-img-area">
-                                                        <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
-                                                            <figure>
-                                                                <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
-                                                                <img class="hover-img" src="@item.Image?w=190" alt="@item.Name">
-                                                            </figure>
-                                                        </a>
-                                                    </div>
-                                                    <div class="pr-info-area">
-                                                        <div class="pr-button">
-                                                            <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                            <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                            <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product title here" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
-                                                        <div class="item-content">
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
-                                                            </div>
-                                                            <div class="pro-action">
-                                                                <button type="button" data-id="@item.Id" class="add-to-cart"><span> Purchase</span> </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
-                            </div>
+<div class="@css" id="@category.SeoAlias">
+    <div class="featured-pro">
+        <div class="slider-items-products">
+            <div id="computer-slider" class="product-flexslider hidden-buttons">
+                <div class="slider-items slider-width-col4">
+                    @foreach (var item in category.Products)
+                    {
+    <div class="product-item">
+        <div class="item-inner">
+            <div class="product-thumbnail">
+                <div class="icon-new-label new-left">mới</div>
+                <div class="pr-img-area">
+                    <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
+                        <figure>
+                            <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
+                            <img class="hover-img" src="@item.Image?w=190" alt="@item.Name">
+                        </figure>
+                    </a>
+                </div>
+                <div class="pr-info-area">
+                    <div class="pr-button">
+                        <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
+                        <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
+                        <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-info">
+                <div class="info-inner">
+                    <div class="item-title"> <a title="Product title here" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
+                    <div class="item-content">
+                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                        <div class="item-price">
+                            <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                        </div>
+                        <div class="pro-action">
+                            <button type="button" data-id="@item.Id" class="add-to-cart"><span> @localizer["Purchase"]</span> </button>
                         </div>
                     </div>
                 </div>
-            }
+            </div>
+        </div>
+    </div>}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>            }
         </div>
     </div>
 </div>

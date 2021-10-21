@@ -9,7 +9,7 @@ namespace TN_Core_Web_App.Data.Enums
     {
         [Description("Cash on delivery")]
         CashOnDelivery,
-        [Description("Onlin Banking")]
+        [Description("Online Banking")]
         OnlinBanking,
         [Description("Payment Gateway")]
         PaymentGateway,

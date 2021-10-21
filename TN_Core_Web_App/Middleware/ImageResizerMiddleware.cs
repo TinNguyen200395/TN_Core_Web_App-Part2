@@ -95,7 +95,7 @@ namespace TN_Core_Web_App.Middleware
                 return;
             }
 
-            var imageData = GetImageData(imagePath, resizeParams, lastWriteTimeUtc);
+            var imageData = DataGetImage(imagePath, resizeParams, lastWriteTimeUtc);
 
             // write to stream
             context.Response.ContentType = resizeParams.format == "png" ? "image/png" : "image/jpeg";
@@ -107,7 +107,7 @@ namespace TN_Core_Web_App.Middleware
 
         }
    
-        private SKData GetImageData(string imagePath, ResizeParams resizeParams, DateTime lastWriteTimeUtc)
+        private SKData DataGetImage(string imagePath, ResizeParams resizeParams, DateTime lastWriteTimeUtc)
         {
             // check cache and return if cached
             long cacheKey;
