@@ -49,7 +49,7 @@ namespace TN_Core_Web_App.Controllers
                 _feedbackService.Add(model.Feedback);
                 _feedbackService.SaveChanges();
                 var content = await _viewRenderService.RenderToStringAsync("Contact/_ContactMail", model.Feedback);
-                await _emailSender.SendEmailAsync(_configuration["MailSettings:AdminMail"], "Have new contact feedback", content);
+                await _emailSender.SendEmailAsync(_configuration["MailSettings:UserName"], "Have new contact feedback", content);
                 ViewData["Success"] = true;
             }
 

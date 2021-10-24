@@ -96,9 +96,9 @@ namespace TN_Core_Web_App.Controllers
 
                         _billService.Save();
 
-                        //var content = await _viewRenderService.RenderToStringAsync("Cart/_BillMail", billViewModel);
+                        var content = await _viewRenderService.RenderToStringAsync("Cart/_BillMail", billViewModel);
                         //Send mail
-                        //await _emailSender.SendEmailAsync(_configuration["MailSettings:AdminMail"], "New bill from Panda Shop", content);
+                        await _emailSender.SendEmailAsync(_configuration["MailSettings:UserName"], "New bill from TN Shop", content);
                         ViewData["Success"] = true;
                     }
                     catch (Exception ex)

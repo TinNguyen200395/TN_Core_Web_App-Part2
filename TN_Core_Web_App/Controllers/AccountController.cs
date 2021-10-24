@@ -230,26 +230,29 @@ namespace TN_Core_Web_App.Controllers
                 return View(model);
             }
             //MM/dd/yyy
-            var user = new AppUser {
+            var user = new AppUser
+            {
                 UserName = model.Email,
                 Email = model.Email,
                 FullName = model.FullName,
                 PhoneNumber = model.PhoneNumber,
-                BirthDay  = model.BirthDay,
-                Status= Status.Active,
+                BirthDay = model.BirthDay,
+                Status = Status.Active,
                 Avatar = string.Empty
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                // ghi lại vào nhật ký 
                 _logger.LogInformation("User created a new account with password.");
-
+                //Tạo mã sác nhận email 
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
                 var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                 await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                _logger.LogInformation("User created a new account with password.");
+             await _signInManager.SignInAsync(user, isPersistent: true);
+        //        _logger.LogInformation("User created a new account with password.");
                 return RedirectToLocal(returnUrl);
             }
             AddErrors(result);

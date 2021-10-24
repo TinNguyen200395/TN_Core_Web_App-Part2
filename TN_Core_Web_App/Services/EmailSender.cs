@@ -20,7 +20,7 @@ namespace TN_Core_Web_App.Services
         {
             SmtpClient client = new SmtpClient(_configuration["MailSettings:Server"])
             {
-                UseDefaultCredentials = false,
+                UseDefaultCredentials = true,
                 Port = int.Parse(_configuration["MailSettings:Port"]),
                 EnableSsl = bool.Parse(_configuration["MailSettings:EnableSsl"]),
                 Credentials = new NetworkCredential(_configuration["MailSettings:UserName"], _configuration["MailSettings:Password"])
