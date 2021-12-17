@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using TN_Core_Web_App.Data.Interfaces;
 using TN_Core_Web_App.Infrastructure.Interfaces;
 using TN_Core_Web_App.Infrastructure.SharedKernel;
@@ -12,6 +11,12 @@ using TN_Core_Web_App.Utilities.Extensions;
 
 namespace TN_Core_Web_App.Data.EF
 {
+    /// <summary>
+    /// Những thằng nào kế thừa vào DomainEntity sẽ triển khai được 
+    ///
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="K"></typeparam>
     public class EFRepository<T, K> : IRepository<T, K>, IDisposable where T : DomainEntity<K>
     {
         private readonly AppDbContext _context;
@@ -24,7 +29,7 @@ namespace TN_Core_Web_App.Data.EF
         {
             _context.Add(entity);
         }
-
+        // Nếu db-context khác null sẽ dispose
         public void Dispose()
         {
           if(_context != null)
@@ -32,7 +37,11 @@ namespace TN_Core_Web_App.Data.EF
                 _context.Dispose();
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="includeProperties"></param>
+        /// <returns></returns>
         public IQueryable<T> FindAll(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> items = _context.Set<T>();

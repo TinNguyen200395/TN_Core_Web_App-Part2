@@ -8,6 +8,10 @@ namespace TN_Core_Web_App.Data.EF
     public class EFUnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
+        /// <summary>
+        /// khi new moi cần tạo một constructor
+        /// </summary>
+        /// <param name="context"></param>
         public EFUnitOfWork(AppDbContext context)
         {
             _context = context;

@@ -1,5 +1,7 @@
 ﻿namespace TN_Core_Web_App.Infrastructure.SharedKernel
 {
+    
+
     public abstract class DomainEntity<T>
     {
         public T Id { get; set; }
